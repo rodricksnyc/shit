@@ -618,9 +618,24 @@ h1{
   height: 100vh;
   top: 0;
   z-index: 999999999;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
+
+
+#slideOut::-webkit-scrollbar-thumb {
+  width: 0px !important;
+  height: 0px;
+}
+
+#slideOut::-webkit-scrollbar {
+  width: 0px !important;
+  height: 0px;
+  /* border-radius: 1rem !important;
+  background: #dbdbdb !important; */
+
+}
+
 
 .showSlideOut {
   right: 0px !important;
@@ -647,8 +662,8 @@ h1{
   border-radius: 0px;
   z-index: 100;
   cursor: pointer;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+  /* border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem; */
 }
 
 .openTab p {
@@ -673,7 +688,7 @@ h1{
   text-shadow: none;
   opacity: 1;
   position: absolute;
-  right: 25px;
+  right: 15px;
   top: 10px;
 
 }
@@ -691,7 +706,7 @@ h1{
   z-index: 99999;
 
   width: 490px;
-  height: 100%;
+
   margin: 0;
   padding-bottom: 6em;
   opacity: 1;
@@ -841,7 +856,7 @@ input[type=radio] {
 
 
 .showSlideOut {
-  right: -30px !important;
+  right: 0px;
 }
 
 
