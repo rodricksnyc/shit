@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-
+	//508
 	$("a, button, input, [tabIndex='0'], #one, .closeRadio, #close, .form-control, #closeThisPlease, #sendMessage, textarea").on("keyup", function (e) {
 		var code = (e.keyCode ? e.keyCode : e.which);
 		if (code == 9) {
@@ -11,6 +11,75 @@ $(document).ready(function () {
 	$("a, button, input, [tabIndex='0'], #one, .closeRadio, #close, .form-control, #closeThisPlease, #sendMessage, textarea").on('focusout', function() {
 		$(this).css('outline', 'none')
 	})
+
+	//active nav
+	var pathMobile = window.location.href
+
+	$('.navbar-nav li .nav-link').each(function() {
+		if (this.href === pathMobile) {
+			$(this).addClass('active');
+		}
+		else {
+			$(this).removeClass('active');
+		}
+
+	});
+
+
+	//rotate caret
+
+	$('.collapse').on('show.bs.collapse', function () {
+
+		$('a[href="#' + this.id + '"] .caret-down').css({
+			transform: "rotate(180deg)"
+		});
+
+	});
+	$('.collapse').on('hide.bs.collapse', function () {
+
+		$('a[href="#' + this.id + '"] .caret-down').css({
+			transform: "rotate(0deg)"
+		});
+
+	});
+
+
+	//accordions
+
+	var hash = 1;
+
+	$(".ques").each(function(i){
+		var count = "ques" + (++hash)
+
+		$(this).attr("href",  "#" + count);
+
+
+		$(this).closest('.card').find('.collapse').attr("id", count);
+	});
+
+
+	function expand(toggleValue) {
+
+		return function(e){
+
+			$(this).html() == "Collapse All" ? $(this).html('Expand All') : $(this).html('Collapse All');
+			$(`.expandAll${toggleValue} .collapse`).collapse('toggle');
+
+			if ( $(this).html() == 'Collapse All') {
+				$(`.changeIcon${toggleValue}`).replaceWith(`<i class="far fa-compress-arrows-alt berry changeIcon${toggleValue}"></i>`)
+			}
+
+			if ( $(this).html() == 'Expand All') {
+				$(`.changeIcon${toggleValue}`).replaceWith(`<i class="fal fa-expand-alt berry changeIcon${toggleValue}"></i>`);
+			}
+
+
+		}
+	}
+
+
+	$('#toggleAccordion1').keypress(expand(1)).click(expand(1));
+
 
 	//contact form
 
