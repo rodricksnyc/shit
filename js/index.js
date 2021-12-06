@@ -81,6 +81,12 @@ $(document).ready(function () {
 	$('#toggleAccordion1').keypress(expand(1)).click(expand(1));
 
 
+
+	//heavy font on due date
+
+
+
+
 	//contact form
 
 	var contactChildren = $("#slideOut .modal-header [tabIndex], #slideOut .modal-body [tabIndex], #slideOut").each(function() {
